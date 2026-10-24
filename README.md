@@ -13,7 +13,7 @@ A modern, high-performance, and responsive interactive study and examination por
 
 Once deployed on GitHub Pages, your quiz portal will be live at:
 ```text
-https://<YOUR-GITHUB-USERNAME>.github.io/<YOUR-REPOSITORY-NAME>/
+https://aditya-kumar-yadav.github.io/MOOC/
 ```
 
 ---
