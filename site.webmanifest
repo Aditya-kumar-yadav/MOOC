@@ -1,0 +1,19 @@
+{
+  "name": "Wildlife Ecology 12-Week Interactive Quiz Portal",
+  "short_name": "Ecology Quiz",
+  "description": "Complete 12-Week Interactive Wildlife Ecology Quiz Portal featuring 120 questions with Practice and Exam modes.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#090e17",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

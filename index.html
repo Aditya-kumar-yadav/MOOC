@@ -1,0 +1,3413 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wildlife Ecology (2026) • 12-Week Interactive Quiz Portal</title>
+  <meta name="description" content="Complete 12-Week Interactive Wildlife Ecology Quiz Portal featuring 120 questions with Practice and Exam modes, week-wise tracking, and review analytics.">
+  <meta name="theme-color" content="#090e17">
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wildlife Ecology (2026) • 12-Week Interactive Quiz Portal">
+  <meta property="og:description" content="Complete 12-Week Interactive Wildlife Ecology Quiz Portal featuring 120 questions with Practice and Exam modes, week-wise tracking, and review analytics.">
+  <meta property="og:image" content="favicon.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Wildlife Ecology (2026) • 12-Week Interactive Quiz Portal">
+  <meta name="twitter:description" content="Complete 12-Week Interactive Wildlife Ecology Quiz Portal featuring 120 questions with Practice and Exam modes, week-wise tracking, and review analytics.">
+
+  <!-- Mobile & PWA Support -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ecology Quiz">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       CSS DESIGN SYSTEM & THEMES
+       ========================================================================== */
+    :root {
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+      
+      /* Base transitions */
+      --trans-speed: 0.25s;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Dark Theme (Default) */
+    [data-theme="dark"] {
+      --bg-body: #090e17;
+      --bg-surface: #111a28;
+      --bg-surface-elevated: #182436;
+      --bg-surface-glass: rgba(17, 26, 40, 0.82);
+      --bg-overlay: rgba(9, 14, 23, 0.85);
+
+      --text-main: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --primary-glow: rgba(16, 185, 129, 0.22);
+      --primary-light: rgba(16, 185, 129, 0.12);
+      --primary-text: #34d399;
+
+      --accent-cyan: #06b6d4;
+      --accent-cyan-light: rgba(6, 182, 212, 0.12);
+      --accent-amber: #f59e0b;
+      --accent-amber-light: rgba(245, 158, 11, 0.15);
+
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.16);
+      --success-border: #10b981;
+      --success-text: #34d399;
+
+      --danger: #ef4444;
+      --danger-bg: rgba(239, 68, 68, 0.16);
+      --danger-border: #ef4444;
+      --danger-text: #f87171;
+
+      --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+      --glow-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25);
+    }
+
+    /* Light Theme */
+    [data-theme="light"] {
+      --bg-body: #f3f6f4;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #ffffff;
+      --bg-surface-glass: rgba(255, 255, 255, 0.9);
+      --bg-overlay: rgba(15, 23, 42, 0.5);
+
+      --text-main: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(0, 0, 0, 0.15);
+
+      --primary: #059669;
+      --primary-hover: #047857;
+      --primary-glow: rgba(5, 150, 105, 0.2);
+      --primary-light: rgba(5, 150, 105, 0.1);
+      --primary-text: #059669;
+
+      --accent-cyan: #0891b2;
+      --accent-cyan-light: rgba(8, 145, 178, 0.1);
+      --accent-amber: #d97706;
+      --accent-amber-light: rgba(217, 119, 6, 0.12);
+
+      --success: #059669;
+      --success-bg: rgba(5, 150, 105, 0.12);
+      --success-border: #059669;
+      --success-text: #047857;
+
+      --danger: #dc2626;
+      --danger-bg: rgba(220, 38, 38, 0.1);
+      --danger-border: #dc2626;
+      --danger-text: #b91c1c;
+
+      --card-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.06), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+      --glow-shadow: 0 0 25px -5px rgba(5, 150, 105, 0.15);
+    }
+
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      transition: background-color var(--trans-speed) var(--ease), color var(--trans-speed) var(--ease);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    button:focus-visible, a:focus-visible, input:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    /* ==========================================================================
+       CONTAINER & LAYOUT
+       ========================================================================== */
+    .app-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Header Nav */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-surface-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 1.25rem;
+      transition: background-color var(--trans-speed) var(--ease);
+    }
+
+    .navbar-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), #06b6d4);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      transition: all var(--trans-speed) var(--ease);
+    }
+
+    .icon-btn:hover {
+      color: var(--text-main);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+
+    .icon-btn.active {
+      color: var(--primary);
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    /* Views Switcher */
+    .view {
+      display: none;
+      animation: fadeIn 0.3s var(--ease) forwards;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       DASHBOARD VIEW
+       ========================================================================== */
+    .hero-banner {
+      margin-top: 1.75rem;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(6, 182, 212, 0.08)), var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2.25rem 2rem;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .hero-content h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-content p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 650px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-badge {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-value {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-text);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* Configuration Panel */
+    .config-card {
+      margin-top: 1.75rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .config-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .config-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .config-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .config-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .segmented-control {
+      display: flex;
+      background: var(--bg-body);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .segment-btn {
+      flex: 1;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-align: center;
+      color: var(--text-secondary);
+      transition: all var(--trans-speed) var(--ease);
+    }
+
+    .segment-btn.active {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.85rem;
+      background: var(--bg-body);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+    }
+
+    .toggle-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .toggle-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .toggle-desc {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Switch Component */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--bg-surface-elevated);
+      border: 1px solid var(--border-strong);
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: var(--text-secondary);
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+      background-color: #ffffff;
+    }
+
+    /* Mega Quiz Launcher Card */
+    .mega-quiz-banner {
+      margin-top: 1.75rem;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(6, 182, 212, 0.15)), var(--bg-surface);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 18px;
+      padding: 1.75rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      box-shadow: var(--glow-shadow);
+    }
+
+    .mega-info h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mega-info p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .mega-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: all var(--trans-speed) var(--ease);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #059669);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #10b981, #047857);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--primary-glow);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-surface);
+      border-color: var(--primary);
+      color: var(--primary-text);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border-strong);
+      color: var(--text-secondary);
+    }
+
+    .btn-outline:hover {
+      color: var(--text-main);
+      border-color: var(--border-strong);
+      background: var(--bg-surface-elevated);
+    }
+
+    .btn-sm {
+      padding: 0.45rem 0.85rem;
+      font-size: 0.8rem;
+      border-radius: 8px;
+    }
+
+    /* Week Selection Toolbar & Grid */
+    .weeks-section-header {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .selection-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .weeks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Week Card */
+    .week-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--card-shadow);
+      transition: all var(--trans-speed) var(--ease);
+      position: relative;
+    }
+
+    .week-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-strong);
+      box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.25);
+    }
+
+    .week-card.selected {
+      border-color: var(--primary);
+      background: linear-gradient(180deg, var(--primary-light), var(--bg-surface));
+    }
+
+    .week-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .week-pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary-text);
+      background: var(--primary-light);
+      border: 1px solid var(--primary-glow);
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .week-checkbox {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .week-card-body h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+      margin-bottom: 0.35rem;
+      line-height: 1.35;
+    }
+
+    .week-card-body p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .week-card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .week-stat {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .week-stat span {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       QUIZ VIEW
+       ========================================================================== */
+    .quiz-view-wrapper {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+    }
+
+    /* Top Quiz Status Bar */
+    .quiz-top-bar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      box-shadow: var(--card-shadow);
+    }
+
+    .quiz-meta-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .quiz-mode-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    .quiz-mode-pill.practice {
+      background: var(--accent-cyan-light);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    .quiz-mode-pill.exam {
+      background: var(--accent-amber-light);
+      color: var(--accent-amber);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .quiz-timer {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      background: var(--bg-body);
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+    }
+
+    .quiz-timer svg {
+      color: var(--accent-cyan);
+    }
+
+    .live-score-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-text);
+      background: var(--primary-light);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--primary-glow);
+    }
+
+    /* Progress Tracker */
+    .progress-track-container {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-surface-elevated);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), #06b6d4);
+      border-radius: 10px;
+      transition: width 0.35s var(--ease);
+    }
+
+    /* Question Card Area */
+    .quiz-main-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .question-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2rem 2.25rem;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .question-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .q-number-tags {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .q-index-pill {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--primary-text);
+    }
+
+    .q-id-pill {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      color: var(--text-secondary);
+    }
+
+    .flag-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      background: var(--bg-body);
+      transition: all var(--trans-speed) var(--ease);
+    }
+
+    .flag-btn:hover {
+      color: var(--text-main);
+      border-color: var(--border-strong);
+    }
+
+    .flag-btn.flagged {
+      color: #ffffff;
+      background: var(--accent-amber);
+      border-color: var(--accent-amber);
+      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.3);
+    }
+
+    .question-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.55;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .option-btn {
+      background: var(--bg-surface-elevated);
+      border: 2px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all var(--trans-speed) var(--ease);
+      position: relative;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--bg-surface);
+      transform: translateX(4px);
+    }
+
+    .option-key {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--bg-body);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      transition: all var(--trans-speed) var(--ease);
+    }
+
+    .option-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-main);
+      flex: 1;
+      line-height: 1.45;
+    }
+
+    .option-status-icon {
+      margin-left: auto;
+      flex-shrink: 0;
+      display: none;
+    }
+
+    /* Selected state in Exam Mode */
+    .option-btn.selected {
+      border-color: var(--accent-cyan);
+      background: var(--accent-cyan-light);
+    }
+
+    .option-btn.selected .option-key {
+      background: var(--accent-cyan);
+      color: #ffffff;
+      border-color: var(--accent-cyan);
+    }
+
+    /* Correct/Incorrect states in Practice Mode & Review */
+    .option-btn.correct {
+      border-color: var(--success);
+      background: var(--success-bg) !important;
+    }
+
+    .option-btn.correct .option-key {
+      background: var(--success);
+      color: #ffffff;
+      border-color: var(--success);
+    }
+
+    .option-btn.correct .option-status-icon {
+      display: flex;
+      color: var(--success);
+    }
+
+    .option-btn.incorrect {
+      border-color: var(--danger);
+      background: var(--danger-bg) !important;
+    }
+
+    .option-btn.incorrect .option-key {
+      background: var(--danger);
+      color: #ffffff;
+      border-color: var(--danger);
+    }
+
+    .option-btn.incorrect .option-status-icon {
+      display: flex;
+      color: var(--danger);
+    }
+
+    /* Feedback Banner (Practice Mode) */
+    .feedback-banner {
+      display: none;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.45;
+      animation: fadeIn 0.25s var(--ease);
+    }
+
+    .feedback-banner.correct {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: var(--success-text);
+    }
+
+    .feedback-banner.incorrect {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      color: var(--danger-text);
+    }
+
+    /* Bottom Quiz Controls */
+    .quiz-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .quiz-nav-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Keyboard Shortcuts Helper */
+    .keyboard-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .keycap {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 0.1rem 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       QUESTION PALETTE (DRAWER / MODAL)
+       ========================================================================== */
+    .palette-drawer-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--bg-overlay);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--trans-speed) var(--ease);
+    }
+
+    .palette-drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .palette-drawer {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: 100%;
+      max-width: 380px;
+      background: var(--bg-surface);
+      border-left: 1px solid var(--border-subtle);
+      z-index: 210;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s var(--ease);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .palette-drawer.open {
+      transform: translateX(0);
+    }
+
+    .palette-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .palette-header h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .palette-legend {
+      padding: 0.85rem 1.5rem;
+      background: var(--bg-body);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .legend-dot.answered { background: var(--accent-cyan); }
+    .legend-dot.unanswered { background: var(--bg-surface-elevated); border: 1px solid var(--border-strong); }
+    .legend-dot.flagged { background: var(--accent-amber); }
+    .legend-dot.correct { background: var(--success); }
+    .legend-dot.incorrect { background: var(--danger); }
+
+    .palette-body {
+      padding: 1.25rem 1.5rem;
+      flex: 1;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.6rem;
+      align-content: start;
+    }
+
+    .palette-btn {
+      aspect-ratio: 1;
+      border-radius: 10px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      position: relative;
+      transition: all var(--trans-speed) var(--ease);
+    }
+
+    .palette-btn:hover {
+      border-color: var(--primary);
+      color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .palette-btn.current {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      color: var(--text-main);
+    }
+
+    .palette-btn.answered {
+      background: var(--accent-cyan);
+      color: #ffffff;
+      border-color: var(--accent-cyan);
+    }
+
+    .palette-btn.correct {
+      background: var(--success);
+      color: #ffffff;
+      border-color: var(--success);
+    }
+
+    .palette-btn.incorrect {
+      background: var(--danger);
+      color: #ffffff;
+      border-color: var(--danger);
+    }
+
+    .palette-btn.flagged::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 6px;
+      height: 6px;
+      background: var(--accent-amber);
+      border-radius: 50%;
+      box-shadow: 0 0 4px var(--accent-amber);
+    }
+
+    /* ==========================================================================
+       RESULTS & REVIEW VIEW
+       ========================================================================== */
+    .results-hero-card {
+      margin-top: 1.75rem;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.08)), var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .results-score-ring {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-circle-svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+
+    .score-circle-bg {
+      fill: none;
+      stroke: var(--bg-surface-elevated);
+      stroke-width: 10;
+    }
+
+    .score-circle-val {
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 408;
+      stroke-dashoffset: 408;
+      transition: stroke-dashoffset 1.2s var(--ease);
+    }
+
+    .score-number-overlay {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .score-pct {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .score-raw {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .results-verdict h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+    }
+
+    .results-verdict p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 550px;
+    }
+
+    .results-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+      width: 100%;
+      max-width: 750px;
+    }
+
+    .metric-card {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 1rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .metric-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .metric-lbl {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .results-actions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    /* Week Breakdown Accordion / Grid */
+    .breakdown-card {
+      margin-top: 2rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 1.75rem 2rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    .breakdown-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .week-breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .week-perf-item {
+      background: var(--bg-body);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .week-perf-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .week-mini-bar {
+      height: 6px;
+      background: var(--bg-surface-elevated);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .week-mini-bar-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 6px;
+    }
+
+    /* Detailed Review Filter Tabs */
+    .review-section {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .review-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .filter-tab-btn {
+      padding: 0.55rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      white-space: nowrap;
+      transition: all var(--trans-speed) var(--ease);
+    }
+
+    .filter-tab-btn:hover {
+      color: var(--text-main);
+      border-color: var(--border-strong);
+    }
+
+    .filter-tab-btn.active {
+      background: var(--primary-light);
+      color: var(--primary-text);
+      border-color: var(--primary);
+    }
+
+    .review-items-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .review-item-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .review-item-card.is-correct {
+      border-left: 5px solid var(--success);
+    }
+
+    .review-item-card.is-incorrect {
+      border-left: 5px solid var(--danger);
+    }
+
+    .review-item-card.is-skipped {
+      border-left: 5px solid var(--text-muted);
+    }
+
+    /* ==========================================================================
+       MODALS, DIALOGS & TOAST
+       ========================================================================== */
+    .dialog-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--bg-overlay);
+      backdrop-filter: blur(6px);
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .dialog-backdrop.open {
+      display: flex;
+    }
+
+    .dialog-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: var(--card-shadow);
+      animation: modalZoom 0.25s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    @keyframes modalZoom {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dialog-header h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .dialog-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 400;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      padding: 0.85rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      animation: toastSlideUp 0.3s var(--ease);
+      pointer-events: auto;
+    }
+
+    @keyframes toastSlideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Canvas for Confetti */
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-banner { padding: 1.5rem 1.25rem; }
+      .hero-content h2 { font-size: 1.5rem; }
+      .question-card { padding: 1.5rem 1.25rem; }
+      .question-text { font-size: 1.1rem; }
+      .option-btn { padding: 0.85rem 1rem; }
+      .mega-quiz-banner { padding: 1.5rem 1.25rem; }
+      .quiz-top-bar { padding: 0.75rem 1rem; }
+      .app-container { padding: 0 0.85rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="brand" id="nav-brand-btn" title="Back to Dashboard">
+        <div class="brand-icon">
+          <!-- Leaf / Nature SVG -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Wildlife Ecology</h1>
+          <span>2026 • 12-Week NPTEL Portal</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Sound toggle -->
+        <button class="icon-btn" id="btn-sound-toggle" aria-label="Toggle Sound" title="Sound Effects">
+          <svg id="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+          <svg id="icon-sound-off" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        </button>
+
+        <!-- Keyboard shortcuts modal button -->
+        <button class="icon-btn" id="btn-shortcuts-modal" aria-label="Keyboard Shortcuts" title="Keyboard Shortcuts (?)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </button>
+
+        <!-- Dark / Light theme toggle -->
+        <button class="icon-btn" id="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <svg id="icon-sun" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <!-- ====================================================================
+         VIEW 1: DASHBOARD
+         ==================================================================== -->
+    <section id="view-dashboard" class="view active">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-header">
+          <div class="hero-content">
+            <h2>Wildlife Ecology (2026) Quiz Portal</h2>
+            <p>Master all 12 weeks of the curriculum with interactive practice tests, instant feedback, randomized order, and comprehensive mock exams.</p>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-badge">
+              <span class="stat-value">120</span>
+              <span class="stat-label">Total Questions</span>
+            </div>
+            <div class="stat-badge">
+              <span class="stat-value">12</span>
+              <span class="stat-label">Full Weeks</span>
+            </div>
+            <div class="stat-badge">
+              <span class="stat-value" id="dash-completed-stat">0%</span>
+              <span class="stat-label">Overall Progress</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings & Controls Panel -->
+      <div class="config-card">
+        <div class="config-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Quiz Configuration & Preferences
+        </div>
+        <div class="config-grid">
+          <!-- Quiz Mode -->
+          <div class="config-item">
+            <span class="config-label">Feedback Mode</span>
+            <div class="segmented-control">
+              <button class="segment-btn active" id="btn-mode-practice" data-mode="practice">
+                ⚡ Instant Practice
+              </button>
+              <button class="segment-btn" id="btn-mode-exam" data-mode="exam">
+                📝 Mock Exam
+              </button>
+            </div>
+          </div>
+
+          <!-- Question Order -->
+          <div class="config-item">
+            <span class="config-label">Question Order</span>
+            <div class="segmented-control">
+              <button class="segment-btn active" id="btn-order-sequential" data-order="sequential">
+                🔢 Sequential (W1..W12)
+              </button>
+              <button class="segment-btn" id="btn-order-random" data-order="random">
+                🔀 Shuffled
+              </button>
+            </div>
+          </div>
+
+          <!-- Option Randomization Toggle -->
+          <div class="config-item">
+            <span class="config-label">Option Order</span>
+            <div class="toggle-row">
+              <div class="toggle-info">
+                <span class="toggle-title">Shuffle Options</span>
+                <span class="toggle-desc">Randomize A, B, C, D choices</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="toggle-shuffle-options">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combined Mega Quiz Launcher Banner -->
+      <div class="mega-quiz-banner">
+        <div class="mega-info">
+          <h3>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            Mega Combined Course Quiz
+          </h3>
+          <p>Test your holistic preparation across all 12 weeks with full mock exams or quick revision rounds.</p>
+        </div>
+        <div class="mega-actions">
+          <button class="btn btn-primary" id="btn-mega-all">
+            🚀 All 120 Questions
+          </button>
+          <button class="btn btn-secondary" id="btn-mega-50">
+            50 Questions Mock
+          </button>
+          <button class="btn btn-secondary" id="btn-mega-20">
+            20 Questions Sprint
+          </button>
+        </div>
+      </div>
+
+      <!-- Week-by-Week Section -->
+      <div class="weeks-section-header">
+        <h3 class="section-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Individual Weeks & Multi-Week Selection
+        </h3>
+        <div class="selection-controls">
+          <button class="btn btn-sm btn-outline" id="btn-select-all-weeks">Select All</button>
+          <button class="btn btn-sm btn-outline" id="btn-clear-all-weeks">Clear</button>
+          <button class="btn btn-sm btn-primary" id="btn-start-selected-weeks" disabled>
+            Start Selected Weeks (0)
+          </button>
+        </div>
+      </div>
+
+      <!-- 12 Week Cards Grid -->
+      <div class="weeks-grid" id="weeks-grid-container">
+        <!-- Dynamically generated week cards -->
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================================
+         VIEW 2: ACTIVE QUIZ INTERFACE
+         ==================================================================== -->
+    <section id="view-quiz" class="view">
+      <div class="quiz-view-wrapper">
+        
+        <!-- Top Status Bar -->
+        <div class="quiz-top-bar">
+          <div class="quiz-meta-left">
+            <button class="btn btn-sm btn-outline" id="btn-quit-quiz" title="Back to Dashboard">
+              ← Exit
+            </button>
+            <span class="quiz-mode-pill practice" id="quiz-badge-mode">Practice Mode</span>
+            <span style="font-weight: 700; font-size: 0.9rem;" id="quiz-badge-title">Week 1 Quiz</span>
+          </div>
+
+          <div class="quiz-meta-right" style="display: flex; align-items: center; gap: 0.75rem;">
+            <!-- Live score in practice mode -->
+            <div class="live-score-badge" id="quiz-live-score" style="display: flex;">
+              <span>Score:</span>
+              <strong id="live-score-val">0 / 0</strong>
+            </div>
+
+            <!-- Timer -->
+            <div class="quiz-timer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span id="quiz-timer-val">00:00</span>
+            </div>
+
+            <!-- Question Palette Toggle -->
+            <button class="btn btn-sm btn-secondary" id="btn-open-palette">
+              ▦ <span id="quiz-palette-progress">1/10</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Progress Tracker Bar -->
+        <div class="progress-track-container">
+          <div class="progress-fill" id="quiz-progress-bar"></div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="quiz-main-layout">
+          <div class="question-card">
+            
+            <div class="question-card-header">
+              <div class="q-number-tags">
+                <span class="q-index-pill" id="q-counter-text">Question 1 of 10</span>
+                <span class="q-id-pill" id="q-id-badge">W1Q1</span>
+                <span class="q-id-pill" id="q-week-badge">Week 1</span>
+              </div>
+              <button class="flag-btn" id="btn-flag-toggle">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                  <line x1="4" y1="22" x2="4" y2="15"/>
+                </svg>
+                <span id="flag-label">Flag</span>
+              </button>
+            </div>
+
+            <!-- Question Text -->
+            <div class="question-text" id="q-question-text">
+              Loading question text...
+            </div>
+
+            <!-- Options Container -->
+            <div class="options-list" id="q-options-container">
+              <!-- Dynamically inserted 4 options -->
+            </div>
+
+            <!-- Feedback Alert (Practice Mode) -->
+            <div class="feedback-banner" id="q-feedback-banner">
+              <span id="feedback-icon">✓</span>
+              <span id="feedback-text">Explanation or validation message.</span>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="quiz-bottom-bar">
+              <div class="quiz-nav-group">
+                <button class="btn btn-secondary" id="btn-quiz-prev" disabled>
+                  ← Previous
+                </button>
+                <button class="btn btn-outline btn-sm" id="btn-quiz-clear" style="display: none;">
+                  Clear Answer
+                </button>
+              </div>
+
+              <div class="quiz-nav-group">
+                <div class="keyboard-hint" style="display: none;" id="keyboard-hint-display">
+                  <span>Press</span> <span class="keycap">1-4</span> <span>to select,</span> <span class="keycap">Enter</span> <span>next</span>
+                </div>
+                <button class="btn btn-primary" id="btn-quiz-next">
+                  Next Question →
+                </button>
+                <button class="btn btn-primary" id="btn-quiz-submit" style="display: none; background: linear-gradient(135deg, #059669, #0284c7);">
+                  Submit Exam ✓
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         VIEW 3: RESULTS & ANALYTICS
+         ==================================================================== -->
+    <section id="view-results" class="view">
+      
+      <!-- Results Hero Card -->
+      <div class="results-hero-card">
+        
+        <div class="results-score-ring">
+          <svg class="score-circle-svg" viewBox="0 0 150 150">
+            <circle class="score-circle-bg" cx="75" cy="75" r="65"></circle>
+            <circle class="score-circle-val" id="results-ring-progress" cx="75" cy="75" r="65"></circle>
+          </svg>
+          <div class="score-number-overlay">
+            <span class="score-pct" id="results-pct-text">0%</span>
+            <span class="score-raw" id="results-raw-score">0 / 0</span>
+          </div>
+        </div>
+
+        <div class="results-verdict">
+          <h3 id="results-verdict-title">Mastery Assessment</h3>
+          <p id="results-verdict-desc">Performance summary will appear here.</p>
+        </div>
+
+        <div class="results-metrics-grid">
+          <div class="metric-card">
+            <span class="metric-val" id="metric-accuracy">0%</span>
+            <span class="metric-lbl">Accuracy</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" id="metric-time">00:00</span>
+            <span class="metric-lbl">Time Taken</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" style="color: var(--success);" id="metric-correct">0</span>
+            <span class="metric-lbl">Correct</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" style="color: var(--danger);" id="metric-incorrect">0</span>
+            <span class="metric-lbl">Incorrect</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val" style="color: var(--text-muted);" id="metric-unanswered">0</span>
+            <span class="metric-lbl">Unanswered</span>
+          </div>
+        </div>
+
+        <div class="results-actions-bar">
+          <button class="btn btn-primary" id="btn-retry-incorrect" style="display: none;">
+            🔄 Retry Incorrect Questions Only
+          </button>
+          <button class="btn btn-secondary" id="btn-retake-quiz">
+            🔁 Retake Quiz
+          </button>
+          <button class="btn btn-secondary" id="btn-copy-summary">
+            📋 Copy Score Summary
+          </button>
+          <button class="btn btn-outline" id="btn-results-dashboard">
+            🏠 Back to Dashboard
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Performance Breakdown by Week -->
+      <div class="breakdown-card" id="results-breakdown-card">
+        <h4>📊 Performance Breakdown by Week</h4>
+        <div class="week-breakdown-grid" id="results-week-breakdown-grid">
+          <!-- Dynamically populated per week -->
+        </div>
+      </div>
+
+      <!-- Detailed Review Section -->
+      <div class="review-section">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+          <h3 class="section-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            Detailed Question Review
+          </h3>
+          <div class="review-filter-bar">
+            <button class="filter-tab-btn active" data-filter="all">All (<span id="rev-count-all">0</span>)</button>
+            <button class="filter-tab-btn" data-filter="incorrect">Incorrect (<span id="rev-count-incorrect">0</span>)</button>
+            <button class="filter-tab-btn" data-filter="correct">Correct (<span id="rev-count-correct">0</span>)</button>
+            <button class="filter-tab-btn" data-filter="unanswered">Unanswered (<span id="rev-count-unanswered">0</span>)</button>
+            <button class="filter-tab-btn" data-filter="flagged">Flagged (<span id="rev-count-flagged">0</span>)</button>
+          </div>
+        </div>
+
+        <div class="review-items-container" id="review-cards-container">
+          <!-- Dynamically rendered review items -->
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ====================================================================
+       QUESTION PALETTE DRAWER
+       ==================================================================== -->
+  <div class="palette-drawer-backdrop" id="palette-backdrop"></div>
+  <aside class="palette-drawer" id="palette-drawer">
+    <div class="palette-header">
+      <h3>Question Navigator</h3>
+      <button class="icon-btn" id="btn-close-palette" aria-label="Close palette">
+        ✕
+      </button>
+    </div>
+    <div class="palette-legend">
+      <div class="legend-item"><span class="legend-dot answered"></span> Answered</div>
+      <div class="legend-item"><span class="legend-dot unanswered"></span> Unanswered</div>
+      <div class="legend-item"><span class="legend-dot flagged"></span> Flagged</div>
+    </div>
+    <div class="palette-body" id="palette-buttons-grid">
+      <!-- Buttons dynamically populated -->
+    </div>
+  </aside>
+
+
+  <!-- ====================================================================
+       KEYBOARD SHORTCUTS MODAL
+       ==================================================================== -->
+  <div class="dialog-backdrop" id="shortcuts-modal">
+    <div class="dialog-card">
+      <div class="dialog-header">
+        <h3>⌨️ Keyboard Shortcuts</h3>
+        <button class="icon-btn" id="btn-close-shortcuts">✕</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Select Options A, B, C, D</span>
+          <div><span class="keycap">1</span> <span class="keycap">2</span> <span class="keycap">3</span> <span class="keycap">4</span> or <span class="keycap">A</span> - <span class="keycap">D</span></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Next Question</span>
+          <div><span class="keycap">→</span > or <span class="keycap">Enter</span></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Previous Question</span>
+          <span class="keycap">←</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Flag / Unflag Question</span>
+          <span class="keycap">F</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Toggle Question Palette</span>
+          <span class="keycap">P</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Close Palette / Modal</span>
+          <span class="keycap">Esc</span>
+        </div>
+      </div>
+      <div class="dialog-actions">
+        <button class="btn btn-primary btn-sm" id="btn-dismiss-shortcuts">Got it</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ====================================================================
+       CONFIRMATION MODAL (EXIT QUIZ)
+       ==================================================================== -->
+  <div class="dialog-backdrop" id="confirm-quit-modal">
+    <div class="dialog-card">
+      <div class="dialog-header">
+        <h3>Quit Current Quiz?</h3>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">
+        Your ongoing progress will not be saved. Are you sure you want to exit to the dashboard?
+      </p>
+      <div class="dialog-actions">
+        <button class="btn btn-outline" id="btn-cancel-quit">Cancel</button>
+        <button class="btn btn-primary" id="btn-confirm-quit" style="background: var(--danger);">Quit Quiz</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+
+  <!-- ====================================================================
+       JAVASCRIPT APPLICATION CODE
+       ==================================================================== -->
+  <script>
+    // =========================================================================
+    // 1. COMPLETE 12-WEEK QUESTION BANK DATA (120 Questions)
+    // =========================================================================
+    const QUIZ_DATA = [
+      // ================= WEEK 1 =================
+      { week: 1, id: "W1Q1", q: "Ecology is the scientific study of _____ that determine the distribution and abundance of organisms. (Fill in the blanks)", options: ["statics", "interactions", "dynamics", "habitat"], answer: 1 },
+      { week: 1, id: "W1Q2", q: "Carolus Linnaeus is considered the father of:", options: ["Biogeography", "Modern taxonomy", "Population ecology", "Botanical geography"], answer: 1 },
+      { week: 1, id: "W1Q3", q: "\"Enquiry into plants\" is a book written by", options: ["Theophrastus", "Linnaeus", "Malthus", "Humboldt"], answer: 0 },
+      { week: 1, id: "W1Q4", q: "Who amongst these is considered the father of Biogeography?", options: ["Theophrastus", "Linnaeus", "Malthus", "Humboldt"], answer: 3 },
+      { week: 1, id: "W1Q5", q: "Genetic adaptation refers to:", options: ["High reproductive rate in one generation", "Inheritable fitness", "Physical strength of an individual", "Short-term environmental comfort"], answer: 1 },
+      { week: 1, id: "W1Q6", q: "Thomas Robert Malthus influenced studies in:", options: ["Community ecology", "Marine ecology", "Population ecology", "Behavioural ecology"], answer: 2 },
+      { week: 1, id: "W1Q7", q: "Which approach tests ecological ideas through experiments?", options: ["Theoretical approach", "Field approach", "Laboratory approach", "Descriptive approach"], answer: 2 },
+      { week: 1, id: "W1Q8", q: "Which approach mainly depends on direct observation of organisms in natural surroundings?", options: ["Laboratory approach", "Historical approach", "Theoretical approach", "Field approach"], answer: 3 },
+      { week: 1, id: "W1Q9", q: "In the Greek word root of Ecology, logos refers to", options: ["household", "preservation", "environment", "study"], answer: 3 },
+      { week: 1, id: "W1Q10", q: "Charles Darwin is associated with:", options: ["The theory of ecosystem formation", "The theory of taxonomy", "The theory of botanical geography", "The theory of evolution and natural selection"], answer: 3 },
+
+      // ================= WEEK 2 =================
+      { week: 2, id: "W2Q1", q: "Hierarchy emerges almost inevitably through a wide variety of evolutionary processes, for the simple reason that hierarchical structures are _____ (Fill in the blank)", options: ["perfect", "imperfect", "stable", "unstable"], answer: 2 },
+      { week: 2, id: "W2Q2", q: "Which level is formed when similar cells and their extracellular matrix from the same origin together perform a specific function?", options: ["Organ", "Tissue", "Organ system", "Population"], answer: 1 },
+      { week: 2, id: "W2Q3", q: "\"the diversity that exists within an ecosystem\" is", options: ["alpha (α) biodiversity", "beta (β) biodiversity", "gamma (γ) biodiversity", "delta (δ) biodiversity"], answer: 0 },
+      { week: 2, id: "W2Q4", q: "\"groups of actually or potentially interbreeding natural populations, which are reproductively isolated from other such groups\" is a definition of", options: ["cells", "species", "ecosystems", "biomes"], answer: 1 },
+      { week: 2, id: "W2Q5", q: "The emergent principle can be stated as", options: ["Whole = sum of parts", "Whole < sum of parts", "Whole > sum of parts", "None of these"], answer: 2 },
+      { week: 2, id: "W2Q6", q: "The smallest unit of life is the:", options: ["Cell", "Tissue", "Organ", "Organism"], answer: 0 },
+      { week: 2, id: "W2Q7", q: "The diversity of genetic information present at the levels of phyla, families, species, populations and individuals is called:", options: ["Ecosystem biodiversity", "Species evenness", "Genetic biodiversity", "Species richness"], answer: 2 },
+      { week: 2, id: "W2Q8", q: "The value of leaving use and non-use values for future generations is called:", options: ["Altruistic value", "Option value", "Existence value", "Bequest value"], answer: 3 },
+      { week: 2, id: "W2Q9", q: "Value arising even though a resource is not being used is called:", options: ["Direct value", "Indirect value", "Non-use value", "Productive value"], answer: 2 },
+      { week: 2, id: "W2Q10", q: "Species richness refers to:", options: ["The distribution of individuals among different species", "The genetic variation within one population", "The number of ecosystems in a biome", "The number of species present"], answer: 3 },
+
+      // ================= WEEK 3 =================
+      { week: 3, id: "W3Q1", q: "I observe a bird take a tick out of another bird's head and eat it. In the social context, this behaviour would be called", options: ["tick hunting", "auto grooming", "allo grooming", "foraging"], answer: 2 },
+      { week: 3, id: "W3Q2", q: "Leech is an example of", options: ["endoparasite", "herbivore predator", "parasitoid", "ectoparasite"], answer: 3 },
+      { week: 3, id: "W3Q3", q: "An ecological interaction in which both participating organisms are harmed is called", options: ["mutualism", "commensalism", "competition", "neutralism"], answer: 2 },
+      { week: 3, id: "W3Q4", q: "Interspecific interaction occurs between", options: ["members of different species", "members of the same species", "two organisms that are both benefited", "two organisms that remain unaffected"], answer: 0 },
+      { week: 3, id: "W3Q5", q: "The distance maintained by nesting penguins to avoid pecking from neighbours is related to", options: ["herbivory", "parasitoid pressure", "prey switching", "territorial spacing"], answer: 3 },
+      { week: 3, id: "W3Q6", q: "A parasite that lives inside the body of its host is called", options: ["ectoparasite", "endoparasite", "predator", "commensal"], answer: 1 },
+      { week: 3, id: "W3Q7", q: "Birds on giraffe are an example of", options: ["colony", "commensalism", "protocooperation", "allelopathy"], answer: 2 },
+      { week: 3, id: "W3Q8", q: "Competition in which organisms directly consume a limited resource so that less remains for others is called", options: ["interference competition", "exploitative competition", "apparent competition", "neutral competition"], answer: 1 },
+      { week: 3, id: "W3Q9", q: "Interference competition is also known as", options: ["apparent competition", "contest competition", "niche competition", "exploitative competition"], answer: 1 },
+      { week: 3, id: "W3Q10", q: "The scientific study of animal behaviour is called", options: ["behaviourism", "ecology", "ethology", "prey-predator dynamics"], answer: 2 },
+
+      // ================= WEEK 4 =================
+      { week: 4, id: "W4Q1", q: "Consider the food chain: Grass → Grasshopper → Frog → Snake → Hawk. In this food chain,", options: ["hawk is producer", "hawk is consumer and carnivore", "hawk is consumer and herbivore", "hawk is decomposer"], answer: 1 },
+      { week: 4, id: "W4Q2", q: "Trees → Birds → Parasites → Hyperparasites represents", options: ["upright pyramid of numbers", "inverted pyramid of numbers", "spindle pyramid of numbers", "dumb-bell pyramid of numbers"], answer: 1 },
+      { week: 4, id: "W4Q3", q: "Glacial lakes are typical examples of", options: ["eutrophic lakes", "hypereutrophic lakes", "oligotrophic lakes", "mesotrophic lakes"], answer: 2 },
+      { week: 4, id: "W4Q4", q: "In a grazing food chain, the first trophic level after producers is generally occupied by:", options: ["Carnivores", "Decomposers", "Detritivores", "Herbivores"], answer: 3 },
+      { week: 4, id: "W4Q5", q: "Which statement correctly defines net primary production?", options: ["Energy intercepted by producers from the Sun", "Total energy lost during transfer between trophic levels", "Gross primary production minus energy lost through respiration per unit time", "Energy stored only in herbivore biomass"], answer: 2 },
+      { week: 4, id: "W4Q6", q: "Which statement correctly defines gross primary production?", options: ["Energy fixed through photosynthesis per unit time", "Energy lost by organisms through respiration per unit time", "Total number of producers in an ecosystem", "Organic matter consumed by herbivores per unit time"], answer: 0 },
+      { week: 4, id: "W4Q7", q: "Which chain best represents a detritus food chain?", options: ["Fallen leaves → detritivores → small fish → large fish", "Grass → chital → tiger", "Rat → flea → parasitic protozoa", "Phytoplankton → zooplankton → fish → sea lion"], answer: 0 },
+      { week: 4, id: "W4Q8", q: "Consider the food chain: Grass → Grasshopper → Frog → Snake → Hawk. As we move up the food chain,", options: ["available energy decreases", "available energy increases", "available energy remains same", "available energy is zero everywhere"], answer: 0 },
+      { week: 4, id: "W4Q9", q: "Which statement correctly describes a decomposer?", options: ["It only feeds on living plants", "It consumes only primary consumers", "It converts dead material into soil and recycles nutrients", "It always occupies the quaternary trophic level"], answer: 2 },
+      { week: 4, id: "W4Q10", q: "Which description best defines a heterotroph?", options: ["An organism that converts sunlight directly into inorganic nutrients", "An organism that cannot produce its own food and depends on organic carbon from other sources", "An organism that uses chemical reactions to manufacture minerals", "An organism that occupies only the first trophic level"], answer: 1 },
+
+      // ================= WEEK 5 =================
+      { week: 5, id: "W5Q1", q: "In population dynamics, which pair represents additions to an existing population?", options: ["Mortality and emigration", "Natality and immigration", "Mortality and natality", "Immigration and emigration"], answer: 1 },
+      { week: 5, id: "W5Q2", q: "Cover board surveys are typically used for sampling", options: ["herpetofauna", "fishes", "large mammals", "carnivores"], answer: 0 },
+      { week: 5, id: "W5Q3", q: "Pan traps are used for sampling", options: ["bees", "butterflies", "non-pollinator insects", "pollinator insects"], answer: 3 },
+      { week: 5, id: "W5Q4", q: "A sampling procedure such that each possible combination of sampling units out of the population has the same chance of being selected is referred to as", options: ["Simple random sampling", "Systematic sampling", "Stratified sampling", "Multistage sampling"], answer: 0 },
+      { week: 5, id: "W5Q5", q: "The minimum replacement level fertility for a population to grow should be greater than", options: ["1", "2", "3", "4"], answer: 1 },
+      { week: 5, id: "W5Q6", q: "A list of sampling units is called a:", options: ["Sample", "Sampling intensity", "Sampling frame", "Stratum"], answer: 2 },
+      { week: 5, id: "W5Q7", q: "In capture-recapture method, the first stage involves:", options: ["Counting faecal pellets", "Removing trapped animals permanently", "Estimating bait consumption", "Capturing, marking and releasing animals"], answer: 3 },
+      { week: 5, id: "W5Q8", q: "The logistic growth equation, when plotted, appears", options: ["I shaped", "J shaped", "S shaped", "O shaped"], answer: 2 },
+      { week: 5, id: "W5Q9", q: "_____ employs a simple rule of selecting every kth unit starting with a number chosen at random from 1 to k as the random start.", options: ["Simple random sampling", "Systematic sampling", "Stratified sampling", "Multistage sampling"], answer: 1 },
+      { week: 5, id: "W5Q10", q: "Which of these is not a measure of absolute population density?", options: ["total count", "pelt count", "capture-recapture method", "removal method"], answer: 1 },
+
+      // ================= WEEK 6 =================
+      { week: 6, id: "W6Q1", q: "A guild is a group of species that", options: ["Occupy only one climax community", "Have identical population size", "Utilise resources in a similar way", "Are confined to saline habitats"], answer: 2 },
+      { week: 6, id: "W6Q2", q: "The climax near Tindni village is being controlled by disturbance by cattle. This is an example of", options: ["climatic climax", "edaphic climax", "disclimax", "catastrophic climax"], answer: 2 },
+      { week: 6, id: "W6Q3", q: "Species abundance may be expressed in terms of", options: ["Climate, soil and slope", "Number of individuals, biomass or cover", "Hydrosere, xerosere and halosere", "Resistance, resilience and stability"], answer: 1 },
+      { week: 6, id: "W6Q4", q: "Resistance refers to the ability of a community to", options: ["Recover quickly after disturbance", "Persist without change in the face of disturbance", "Increase the number of pioneer species", "Replace one seral stage with another"], answer: 1 },
+      { week: 6, id: "W6Q5", q: "Importance value can be written as", options: ["Relative density + Relative frequency X Relative dominance", "Relative density X Relative frequency + Relative dominance", "Relative density + Relative frequency + Relative dominance", "Relative density X Relative frequency X Relative dominance"], answer: 2 },
+      { week: 6, id: "W6Q6", q: "Secondary succession refers to succession that occurs", options: ["On newly exposed rock or sand surfaces", "In a saline body such as a marsh", "After severe disturbance or removal of a pre-existing community", "Only when climate controls the final community"], answer: 2 },
+      { week: 6, id: "W6Q7", q: "Lithosere is an example of", options: ["hydrosere", "xerosere", "psammosere", "halosere"], answer: 1 },
+      { week: 6, id: "W6Q8", q: "A transition area where two communities meet and integrate is called", options: ["Habitat", "Niche", "Ecotone", "Sere"], answer: 2 },
+      { week: 6, id: "W6Q9", q: "Which of these is correct?", options: ["Fundamental niche > Realised niche", "Fundamental niche = Realised niche", "Fundamental niche < Realised niche", "a or b"], answer: 3 },
+      { week: 6, id: "W6Q10", q: "Species richness refers to", options: ["Number of species", "Number of individuals of one species", "Biomass of the dominant species", "Basal area of all trees"], answer: 0 },
+
+      // ================= WEEK 7 =================
+      { week: 7, id: "W7Q1", q: "In an estuary, species may use areas of", options: ["high, intermediate, and low salinity", "only high temperature and high fertility", "only alpine wind and poor soil", "only forest canopy and grassland patches"], answer: 0 },
+      { week: 7, id: "W7Q2", q: "The movement of individuals away from their place of birth or hatching or seed production into a new habitat or area to survive and reproduce is called", options: ["translocation", "migration", "dispersal", "drifting"], answer: 2 },
+      { week: 7, id: "W7Q3", q: "Transplantation experiments are used to find", options: ["potential range", "effective range", "actual range", "economic range"], answer: 0 },
+      { week: 7, id: "W7Q4", q: "Pneumatophores are roots that", options: ["move downward to store excess salts", "spread into sand dunes to stop wind erosion", "grow upward from the ground to obtain air", "become thorns to reduce transpiration"], answer: 2 },
+      { week: 7, id: "W7Q5", q: "At night, cooler and denser air from upper hill areas flows down towards the valley. This wind pattern is called", options: ["valley breeze", "hill wind", "ocean breeze", "estuary current"], answer: 1 },
+      { week: 7, id: "W7Q6", q: "Flamingos in the Rann of Kutch are associated with water bodies because they need", options: ["high wind speeds and snow-covered slopes", "food organisms in water and safe breeding conditions", "dry deciduous leaves for summer feeding", "tall coniferous trees for nesting"], answer: 1 },
+      { week: 7, id: "W7Q7", q: "Estuaries are specialized habitats because they contain", options: ["only freshwater throughout the year", "only saline water throughout the year", "only dry land and thorny shrubs", "a meeting zone of freshwater and saline water"], answer: 3 },
+      { week: 7, id: "W7Q8", q: "The movement of lions across the Gir landscape is an example of", options: ["diffusion", "secular dispersal", "jump dispersal", "drifting"], answer: 0 },
+      { week: 7, id: "W7Q9", q: "Mangroves are adapted to areas that experience", options: ["low salinity and permanent dryness", "snow accumulation and alpine winds", "deep desert sand with no water movement", "high salinity and partial or complete inundation"], answer: 3 },
+      { week: 7, id: "W7Q10", q: "Scarcity of food is a", options: ["chemical factor", "demographic factor", "push factor", "pull factor"], answer: 2 },
+
+      // ================= WEEK 8 =================
+      { week: 8, id: "W8Q1", q: "Which of these correctly represents the process of habitat fragmentation and loss?", options: ["Original forest → Dissection → Perforation → Fragmentation → Attrition", "Original forest → Dissection → Attrition → Fragmentation → Perforation", "Original forest → Dissection → Perforation → Attrition → Fragmentation", "Original forest → Dissection → Fragmentation → Perforation → Attrition"], answer: 0 },
+      { week: 8, id: "W8Q2", q: "Habitat degradation means", options: ["complete removal of all organisms from an area", "legal declaration of a protected area", "breaking a forest into administrative zones", "reduction in habitat quality for a given species"], answer: 3 },
+      { week: 8, id: "W8Q3", q: "When area is reduced by 90% and z is taken as 0.30, species richness approximately becomes", options: ["one-tenth of the original", "half of the original", "double the original", "unchanged"], answer: 1 },
+      { week: 8, id: "W8Q4", q: "Breaking a natural landscape into small isolated parcels within human-dominated land is called", options: ["habitat restoration", "habitat fragmentation", "ex-situ preservation", "seed dormancy"], answer: 1 },
+      { week: 8, id: "W8Q5", q: "We prefer those areas for the creation of a conservation reserve where the level of threat is", options: ["very high", "medium", "very low", "non-existent"], answer: 1 },
+      { week: 8, id: "W8Q6", q: "A very small population moves towards extinction mainly because of Allee effect, chance deaths, and related small-population problems. This is best described as", options: ["habitat displacement", "small population paradigm", "reserve design", "biodiversity repository"], answer: 1 },
+      { week: 8, id: "W8Q7", q: "A population becomes smaller because its habitat is shrinking, competitors are increasing, and poaching is removing individuals. This situation is best studied under", options: ["declining population paradigm", "small population paradigm", "island biogeography model", "cryopreservation strategy"], answer: 0 },
+      { week: 8, id: "W8Q8", q: "Which of these is a deterministic factor?", options: ["environmental variation", "forest fire", "death rate", "diseases"], answer: 2 },
+      { week: 8, id: "W8Q9", q: "Roads, railways, dams, and similar structures contribute to fragmentation because they may act as", options: ["mortality sources and physical barriers", "seed collection centres", "botanical repositories", "cryopreservation facilities"], answer: 0 },
+      { week: 8, id: "W8Q10", q: "The acronym HIPPO does not include", options: ["habitat loss", "invasive species", "pollination", "pollution"], answer: 2 },
+
+      // ================= WEEK 9 =================
+      { week: 9, id: "W9Q1", q: "A proposed epoch marked by significant human impact on Earth's geology and ecosystems is called?", options: ["Holocene", "Anthropocene", "Pleistocene", "Carboniferous"], answer: 1 },
+      { week: 9, id: "W9Q2", q: "According to Malthusian model,", options: ["Population grows in geometric progression, food supply increases in arithmetic progression", "Population grows in geometric progression, food supply increases in geometric progression", "Population grows in arithmetic progression, food supply increases in arithmetic progression", "Population grows in arithmetic progression, food supply increases in geometric progression"], answer: 0 },
+      { week: 9, id: "W9Q3", q: "Which of these is not a pillar of sustainability?", options: ["environmental sustainability", "economic sustainability", "trans-boundary sustainability", "social sustainability"], answer: 2 },
+      { week: 9, id: "W9Q4", q: "The demographic transition sees a society move from", options: ["high birth rate, low death rate to low birth rate, low death rate", "low birth rate, high death rate to low birth rate, low death rate", "high birth rate, high death rate to low birth rate, low death rate", "high birth rate, high death rate to low birth rate, high death rate"], answer: 2 },
+      { week: 9, id: "W9Q5", q: "Which of the following is listed as a theme of clean technology?", options: ["Water purification", "Predator-prey control", "Migration of birds", "Food chain length"], answer: 0 },
+      { week: 9, id: "W9Q6", q: "When stalactites and stalagmites join together, they form a?", options: ["Lagoon", "Crevice", "Terrace", "Column"], answer: 3 },
+      { week: 9, id: "W9Q7", q: "Which of these is a preventive check according to Malthus?", options: ["foresight", "vice", "misery", "flood"], answer: 0 },
+      { week: 9, id: "W9Q8", q: "Which of these is a pillar of sustainability", options: ["social sustainability", "industrial sustainability", "agricultural sustainability", "trans-boundary sustainability"], answer: 0 },
+      { week: 9, id: "W9Q9", q: "In cave formations, the deposits growing downward from the roof are called?", options: ["Stalagmites", "Columns", "Stalactites", "Sediment bars"], answer: 2 },
+      { week: 9, id: "W9Q10", q: "Industrial processes such as the Haber process affect which biogeochemical cycle?", options: ["Carbon cycle only", "Water cycle only", "Nitrogen cycle", "Phosphorus cycle only"], answer: 2 },
+
+      // ================= WEEK 10 =================
+      { week: 10, id: "W10Q1", q: "A community already affected by disease, weeds, pollutants, or livestock pressure is best described as which type of community?", options: ["Pristine community", "Climax community", "Resistant community", "Disturbed community"], answer: 3 },
+      { week: 10, id: "W10Q2", q: "When an organism absorbs a toxic substance into its tissues faster than it loses it, the process is called:", options: ["Biomagnification", "Bioavailability", "Bioaccumulation", "Biodegradation"], answer: 2 },
+      { week: 10, id: "W10Q3", q: "What percentage of marine plastic debris is stated to sink to the ocean bottom?", options: ["15%", "30%", "50%", "70%"], answer: 3 },
+      { week: 10, id: "W10Q4", q: "Hydrocarbons derived directly from mineral oils are called:", options: ["Pyrogenic hydrocarbons", "Biogenic hydrocarbons", "Aromatic hydrocarbons", "Petrogenic hydrocarbons"], answer: 3 },
+      { week: 10, id: "W10Q5", q: "\"Any changes in natural or human systems that inadvertently increase vulnerability to climatic stimuli; an adaptation that does not succeed in reducing vulnerability but increases it instead\" is a definition for", options: ["adaptation", "mitigation", "maladaptation", "malmitigation"], answer: 2 },
+      { week: 10, id: "W10Q6", q: "A normal ecological community faces one large and infrequent disturbance and then returns close to its earlier condition. Which outcome is best represented?", options: ["Long-term alteration", "Recovery", "Bioaccumulation", "Habitat displacement"], answer: 1 },
+      { week: 10, id: "W10Q7", q: "Macrodebris in the context of plastic debris has fragments of size", options: ["> 20 mm", "5-20 mm", "< 5 mm", "< 1 mm"], answer: 0 },
+      { week: 10, id: "W10Q8", q: "The Deepwater Horizon incident is classified by origin as which kind of oil spill?", options: ["Natural", "Accidental", "Intentional", "Biogenic"], answer: 1 },
+      { week: 10, id: "W10Q9", q: "Harmful effects caused by a single or short-term exposure are called:", options: ["Chronic toxicity", "Acute toxicity", "Sub-lethal exposure", "Bioavailability"], answer: 1 },
+      { week: 10, id: "W10Q10", q: "Mesodebris in the context of plastic debris has fragments of size", options: ["> 20 mm", "5-20 mm", "< 5 mm", "< 1 mm"], answer: 1 },
+
+      // ================= WEEK 11 =================
+      { week: 11, id: "W11Q1", q: "Which term refers to the total weight of organisms removed by fishing?", options: ["Natural mortality", "Recruitment", "Growth", "Yield to fishery"], answer: 3 },
+      { week: 11, id: "W11Q2", q: "Ludwig's ratchet predicts", options: ["decreasing harvesting rate", "constant harvesting rate", "increasing harvesting rate", "fluctuating harvesting rate"], answer: 2 },
+      { week: 11, id: "W11Q3", q: "A deciduous forest in Madhya Pradesh was converted to a mine. After the mining operations were over, the pits were filled up with water and a lake was created. It is now visited by several migratory birds. This is an example of", options: ["recovery", "restoration", "enhancement", "replacement"], answer: 3 },
+      { week: 11, id: "W11Q4", q: "Which of these is correct?", options: ["The maximum sustainable yield is near the beginning of the sigmoidal curve.", "The maximum sustainable yield is near the mid-point of the sigmoidal curve.", "The maximum sustainable yield is near the end of the sigmoidal curve.", "None of these."], answer: 1 },
+      { week: 11, id: "W11Q5", q: "Which of these is correct?", options: ["R + G = M + F", "R + M = G + F", "R + F = M + G", "R + G + M + F = 0"], answer: 0 },
+      { week: 11, id: "W11Q6", q: "In a logistic growth curve, growth is slow near carrying capacity mainly because the population is:", options: ["very small", "newly introduced", "close to the environmental limit", "free from competition"], answer: 2 },
+      { week: 11, id: "W11Q7", q: "What does absolute abundance measure?", options: ["Relative catch per unit effort", "Actual number of individuals present", "Percentage change in population", "Estimated trend in sightings"], answer: 1 },
+      { week: 11, id: "W11Q8", q: "A root zone treatment plant is an example of", options: ["phytoremediation", "biological control", "biomagnification", "bioaccumulation"], answer: 0 },
+      { week: 11, id: "W11Q9", q: "What is a major risk of introducing predators for pest control?", options: ["The pest always becomes extinct immediately", "The predator cannot reproduce under any condition", "The predator reduces rainfall", "The introduced predator may itself become a pest"], answer: 3 },
+      { week: 11, id: "W11Q10", q: "Ecotoxicology studies toxic chemicals mainly at which broader levels?", options: ["Individual atoms and molecules only", "Population, community, ecosystem, and biosphere levels", "Market demand and harvesting cost only", "Crop yield and storage levels only"], answer: 1 },
+
+      // ================= WEEK 12 =================
+      { week: 12, id: "W12Q1", q: "In cave formations, the deposits growing downward from the roof are called?", options: ["Stalagmites", "Columns", "Stalactites", "Sediment bars"], answer: 2 },
+      { week: 12, id: "W12Q2", q: "Which of these is a deterministic factor?", options: ["environmental variation", "forest fire", "death rate", "diseases"], answer: 2 },
+      { week: 12, id: "W12Q3", q: "An ecological interaction in which both participating organisms are harmed is called", options: ["mutualism", "commensalism", "competition", "neutralism"], answer: 2 },
+      { week: 12, id: "W12Q4", q: "Ecology is the scientific study of _____ that determine the distribution and abundance of organisms. (Fill in the blanks)", options: ["statics", "interactions", "dynamics", "habitat"], answer: 1 },
+      { week: 12, id: "W12Q5", q: "Mesodebris in the context of plastic debris has fragments of size", options: ["> 20 mm", "5-20 mm", "< 5 mm", "< 1 mm"], answer: 1 },
+      { week: 12, id: "W12Q6", q: "Which level is formed when similar cells and their extracellular matrix from the same origin together perform a specific function?", options: ["Organ", "Tissue", "Organ system", "Population"], answer: 1 },
+      { week: 12, id: "W12Q7", q: "Secondary succession refers to succession that occurs", options: ["On newly exposed rock or sand surfaces", "In a saline body such as a marsh", "After severe disturbance or removal of a pre-existing community", "Only when climate controls the final community"], answer: 2 },
+      { week: 12, id: "W12Q8", q: "A group of organs working together to perform one or more functions is called?", options: ["Tissue", "Organ", "Organism", "Organ system"], answer: 3 },
+      { week: 12, id: "W12Q9", q: "After a forest fire, an incompletely destroyed forest develops through herbaceous, shrub and woodland stages toward a stable stage. This is best described as?", options: ["Secondary succession", "Climatic climax", "Bioaccumulation", "Species-area effect"], answer: 0 },
+      { week: 12, id: "W12Q10", q: "If organisms already present in an area change the soil conditions and thereby drive further community change, the succession is?", options: ["Allogenic succession", "Autogenic succession", "Catastrophic succession", "Seasonal succession"], answer: 1 }
+    ];
+
+    // Week Titles & Themes metadata for descriptive UI
+    const WEEK_METADATA = {
+      1: { title: "Introduction to Ecology & Pioneers", desc: "Scientific foundations, Linnaeus, Humboldt, Theophrastus, approaches to ecological study." },
+      2: { title: "Hierarchical Levels & Biodiversity", desc: "Biological hierarchies, emergent principles, alpha/beta/gamma biodiversity, economic values." },
+      3: { title: "Interactions, Parasitism & Ethology", desc: "Mutualism, competition, ecto/endoparasites, allogrooming, animal behaviour and ethology." },
+      4: { title: "Trophic Levels & Energy Dynamics", desc: "Grazing and detritus food chains, ecological pyramids, primary production, decomposers." },
+      5: { title: "Population Dynamics & Sampling", desc: "Natality, mortality, logistic growth, sampling frames, capture-recapture, pan traps." },
+      6: { title: "Community Ecology & Succession", desc: "Guilds, disclimax, primary vs secondary succession, ecotones, niches and species richness." },
+      7: { title: "Dispersal, Estuaries & Mangroves", desc: "Dispersal types, potential range, pneumatophores, estuaries, push/pull environmental factors." },
+      8: { title: "Fragmentation & Conservation", desc: "Habitat fragmentation steps, HIPPO, small vs declining population paradigms, reserves." },
+      9: { title: "Anthropocene & Sustainability", desc: "Pillars of sustainability, Malthusian model, demographic transitions, cave formations." },
+      10: { title: "Disturbances, Plastics & Ecotox", desc: "Bioaccumulation, marine plastic debris sizes, Deepwater Horizon, acute vs chronic toxicity." },
+      11: { title: "Fisheries, Yield Models & Remediation", desc: "Maximum sustainable yield, Ludwig's ratchet, biological control risks, phytoremediation." },
+      12: { title: "Comprehensive Ecological Synthesis", desc: "Integrated course review, deterministic factors, autogenic succession, organ systems." }
+    };
+
+    // =========================================================================
+    // 2. STATE MANAGEMENT & STORAGE
+    // =========================================================================
+    const AppState = {
+      theme: localStorage.getItem('we_theme') || 'dark',
+      soundEnabled: localStorage.getItem('we_sound') !== 'false',
+      quizMode: 'practice', // 'practice' | 'exam'
+      questionOrder: 'sequential', // 'sequential' | 'random'
+      shuffleOptions: false,
+      selectedWeeks: new Set(),
+      
+      // Active Quiz Session
+      quizSession: {
+        active: false,
+        title: '',
+        questions: [], // list of prepared question objects
+        currentIndex: 0,
+        startTime: null,
+        timerInterval: null,
+        elapsedSeconds: 0,
+        isCompleted: false
+      },
+
+      // High scores cache
+      scores: JSON.parse(localStorage.getItem('we_scores') || '{}')
+    };
+
+    // =========================================================================
+    // 3. SOUND SYNTHESIZER (Web Audio API - Offline & Zero-Dependency)
+    // =========================================================================
+    const SoundManager = {
+      ctx: null,
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) this.ctx = new AudioContext();
+        }
+      },
+      play(type) {
+        if (!AppState.soundEnabled) return;
+        try {
+          this.init();
+          if (!this.ctx) return;
+          if (this.ctx.state === 'suspended') this.ctx.resume();
+
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+
+          if (type === 'select') {
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(440, now);
+            osc.frequency.exponentialRampToValueAtTime(880, now + 0.05);
+            gain.gain.setValueAtTime(0.12, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+            osc.start(now);
+            osc.stop(now + 0.05);
+          } else if (type === 'correct') {
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(523.25, now); // C5
+            osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+            osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+            osc.start(now);
+            osc.stop(now + 0.28);
+          } else if (type === 'incorrect') {
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(260, now);
+            osc.frequency.exponentialRampToValueAtTime(160, now + 0.2);
+            gain.gain.setValueAtTime(0.14, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+            osc.start(now);
+            osc.stop(now + 0.2);
+          } else if (type === 'fanfare') {
+            // Arpeggio
+            [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+              const o = this.ctx.createOscillator();
+              const g = this.ctx.createGain();
+              o.connect(g);
+              g.connect(this.ctx.destination);
+              o.type = 'triangle';
+              o.frequency.setValueAtTime(freq, now + i * 0.1);
+              g.gain.setValueAtTime(0.15, now + i * 0.1);
+              g.gain.exponentialRampToValueAtTime(0.001, now + i * 0.1 + 0.35);
+              o.start(now + i * 0.1);
+              o.stop(now + i * 0.1 + 0.35);
+            });
+          }
+        } catch (e) {
+          console.warn('Audio play error:', e);
+        }
+      }
+    };
+
+    // =========================================================================
+    // 4. CELEBRATORY CANVAS CONFETTI (Lightweight, pure vanilla JS)
+    // =========================================================================
+    const ConfettiEffect = {
+      canvas: null,
+      ctx: null,
+      particles: [],
+      animId: null,
+      init() {
+        this.canvas = document.getElementById('confetti-canvas');
+        if (!this.canvas) return;
+        this.ctx = this.canvas.getContext('2d');
+        window.addEventListener('resize', () => this.resize());
+        this.resize();
+      },
+      resize() {
+        if (!this.canvas) return;
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+      },
+      launch(count = 90) {
+        this.init();
+        if (!this.ctx) return;
+        this.particles = [];
+        const colors = ['#10b981', '#06b6d4', '#f59e0b', '#3b82f6', '#ec4899', '#8b5cf6'];
+        
+        for (let i = 0; i < count; i++) {
+          this.particles.push({
+            x: window.innerWidth * (0.2 + Math.random() * 0.6),
+            y: window.innerHeight * 0.4,
+            vx: (Math.random() - 0.5) * 16,
+            vy: (Math.random() - 1.2) * 16,
+            size: 6 + Math.random() * 6,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            rotation: Math.random() * 360,
+            rotationSpeed: (Math.random() - 0.5) * 10,
+            opacity: 1
+          });
+        }
+        if (this.animId) cancelAnimationFrame(this.animId);
+        this.animate();
+      },
+      animate() {
+        if (!this.ctx || this.particles.length === 0) {
+          if (this.ctx) this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+          return;
+        }
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        for (let i = 0; i < this.particles.length; i++) {
+          const p = this.particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.35; // gravity
+          p.vx *= 0.98;
+          p.rotation += p.rotationSpeed;
+          p.opacity -= 0.009;
+
+          if (p.opacity > 0) {
+            this.ctx.save();
+            this.ctx.translate(p.x, p.y);
+            this.ctx.rotate((p.rotation * Math.PI) / 180);
+            this.ctx.fillStyle = p.color;
+            this.ctx.globalAlpha = Math.max(0, p.opacity);
+            this.ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.5);
+            this.ctx.restore();
+          }
+        }
+
+        this.particles = this.particles.filter(p => p.opacity > 0 && p.y < window.innerHeight + 50);
+        if (this.particles.length > 0) {
+          this.animId = requestAnimationFrame(() => this.animate());
+        } else {
+          this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        }
+      }
+    };
+
+    // =========================================================================
+    // 5. HELPER UTILITIES
+    // =========================================================================
+    function showToast(message, icon = '✓') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `<span>${icon}</span><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
+    }
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Fisher-Yates array shuffler
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    // Prepare a question object for quiz session with option order handling
+    function prepareQuestion(origQ, shuffleOpts) {
+      if (!shuffleOpts) {
+        return {
+          ...origQ,
+          displayOptions: [...origQ.options],
+          correctIndex: origQ.answer,
+          userAnswer: null,
+          flagged: false
+        };
+      }
+      // Shuffle options while mapping original answer index
+      const mapped = origQ.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+      const shuffled = shuffleArray(mapped);
+      const newCorrectIndex = shuffled.findIndex(item => item.originalIndex === origQ.answer);
+      return {
+        ...origQ,
+        displayOptions: shuffled.map(item => item.text),
+        correctIndex: newCorrectIndex,
+        userAnswer: null,
+        flagged: false
+      };
+    }
+
+    // Switch visible view
+    function switchView(viewId) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      const target = document.getElementById(viewId);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // =========================================================================
+    // 6. DASHBOARD LOGIC & RENDERING
+    // =========================================================================
+    function renderDashboard() {
+      // Update overall progress stat
+      const storedKeys = Object.keys(AppState.scores);
+      const completedWeeks = storedKeys.filter(k => k.startsWith('week_')).length;
+      const progressPct = Math.round((completedWeeks / 12) * 100);
+      document.getElementById('dash-completed-stat').textContent = `${progressPct}%`;
+
+      // Render 12 week cards
+      const container = document.getElementById('weeks-grid-container');
+      container.innerHTML = '';
+
+      for (let w = 1; w <= 12; w++) {
+        const meta = WEEK_METADATA[w] || { title: `Week ${w}`, desc: 'Wildlife Ecology Curriculum' };
+        const scoreData = AppState.scores[`week_${w}`];
+        const isSelected = AppState.selectedWeeks.has(w);
+
+        const card = document.createElement('div');
+        card.className = `week-card ${isSelected ? 'selected' : ''}`;
+        card.dataset.week = w;
+
+        let scoreBadge = `<span class="week-stat">Status: <span>Not taken</span></span>`;
+        if (scoreData) {
+          const pct = Math.round((scoreData.score / scoreData.total) * 100);
+          scoreBadge = `<span class="week-stat">Best: <span style="color: var(--primary-text);">${scoreData.score}/${scoreData.total} (${pct}%)</span></span>`;
+        }
+
+        card.innerHTML = `
+          <div class="week-card-top">
+            <span class="week-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Week ${w}
+            </span>
+            <input type="checkbox" class="week-checkbox" data-week="${w}" ${isSelected ? 'checked' : ''} aria-label="Select Week ${w}">
+          </div>
+          <div class="week-card-body">
+            <h4>${meta.title}</h4>
+            <p>${meta.desc}</p>
+          </div>
+          <div class="week-card-bottom">
+            ${scoreBadge}
+            <button class="btn btn-sm btn-secondary btn-launch-week" data-week="${w}">
+              Take Quiz →
+            </button>
+          </div>
+        `;
+
+        // Checkbox listener
+        const checkbox = card.querySelector('.week-checkbox');
+        checkbox.addEventListener('change', (e) => {
+          e.stopPropagation();
+          toggleWeekSelection(w, checkbox.checked);
+        });
+
+        // Launch single week quiz listener
+        card.querySelector('.btn-launch-week').addEventListener('click', (e) => {
+          e.stopPropagation();
+          startSingleWeekQuiz(w);
+        });
+
+        container.appendChild(card);
+      }
+
+      updateSelectedWeeksButton();
+    }
+
+    function toggleWeekSelection(weekNum, isSelected) {
+      if (isSelected) {
+        AppState.selectedWeeks.add(weekNum);
+      } else {
+        AppState.selectedWeeks.delete(weekNum);
+      }
+      // Update card visual
+      const card = document.querySelector(`.week-card[data-week="${weekNum}"]`);
+      if (card) {
+        card.classList.toggle('selected', isSelected);
+        const cb = card.querySelector('.week-checkbox');
+        if (cb) cb.checked = isSelected;
+      }
+      updateSelectedWeeksButton();
+    }
+
+    function updateSelectedWeeksButton() {
+      const btn = document.getElementById('btn-start-selected-weeks');
+      const count = AppState.selectedWeeks.size;
+      const totalQ = count * 10;
+      if (count > 0) {
+        btn.disabled = false;
+        btn.textContent = `Start Selected Weeks (${count} Wk • ${totalQ} Qs) →`;
+      } else {
+        btn.disabled = true;
+        btn.textContent = `Start Selected Weeks (0)`;
+      }
+    }
+
+    // =========================================================================
+    // 7. QUIZ INITIALIZATION & NAVIGATION
+    // =========================================================================
+    function startSingleWeekQuiz(weekNumber) {
+      const weekQuestions = QUIZ_DATA.filter(q => q.week === weekNumber);
+      const title = `Week ${weekNumber} Quiz • ${WEEK_METADATA[weekNumber]?.title || ''}`;
+      initQuizSession(weekQuestions, title, `week_${weekNumber}`);
+    }
+
+    function startSelectedWeeksQuiz() {
+      if (AppState.selectedWeeks.size === 0) return;
+      const weeksArray = Array.from(AppState.selectedWeeks).sort((a, b) => a - b);
+      const selectedQuestions = QUIZ_DATA.filter(q => AppState.selectedWeeks.has(q.week));
+      const title = `Custom Quiz • Weeks [${weeksArray.join(', ')}] (${selectedQuestions.length} Questions)`;
+      initQuizSession(selectedQuestions, title, 'custom_selection');
+    }
+
+    function startMegaQuiz(count = 120) {
+      let pool = [...QUIZ_DATA];
+      let title = `Mega Combined Quiz • All 120 Questions`;
+
+      if (count < 120) {
+        pool = shuffleArray(pool).slice(0, count);
+        title = `Mega Quiz Sprint • ${count} Questions`;
+      }
+
+      initQuizSession(pool, title, count === 120 ? 'mega_all' : `mega_${count}`);
+    }
+
+    function initQuizSession(rawQuestions, title, quizKey = 'general') {
+      SoundManager.play('select');
+      
+      // Order questions
+      let processedQuestions = [...rawQuestions];
+      if (AppState.questionOrder === 'random') {
+        processedQuestions = shuffleArray(processedQuestions);
+      } else {
+        // Sequential order
+        processedQuestions.sort((a, b) => {
+          if (a.week !== b.week) return a.week - b.week;
+          return a.id.localeCompare(b.id, undefined, { numeric: true });
+        });
+      }
+
+      // Prepare display options
+      const sessionQuestions = processedQuestions.map(q => prepareQuestion(q, AppState.shuffleOptions));
+
+      // Reset and configure quiz session
+      AppState.quizSession = {
+        active: true,
+        key: quizKey,
+        title: title,
+        questions: sessionQuestions,
+        currentIndex: 0,
+        startTime: Date.now(),
+        elapsedSeconds: 0,
+        timerInterval: null,
+        isCompleted: false
+      };
+
+      // Configure Header Bar
+      document.getElementById('quiz-badge-title').textContent = title;
+      const modePill = document.getElementById('quiz-badge-mode');
+      modePill.textContent = AppState.quizMode === 'practice' ? 'Instant Practice ⚡' : 'Mock Exam 📝';
+      modePill.className = `quiz-mode-pill ${AppState.quizMode}`;
+
+      // Live score element visibility
+      document.getElementById('quiz-live-score').style.display = AppState.quizMode === 'practice' ? 'flex' : 'none';
+      document.getElementById('keyboard-hint-display').style.display = 'flex';
+
+      // Start Stopwatch Timer
+      if (AppState.quizSession.timerInterval) clearInterval(AppState.quizSession.timerInterval);
+      document.getElementById('quiz-timer-val').textContent = '00:00';
+      AppState.quizSession.timerInterval = setInterval(() => {
+        AppState.quizSession.elapsedSeconds++;
+        document.getElementById('quiz-timer-val').textContent = formatTime(AppState.quizSession.elapsedSeconds);
+      }, 1000);
+
+      // Render Question Palette
+      renderPalette();
+
+      // Render First Question
+      renderActiveQuestion();
+
+      // Switch to Quiz view
+      switchView('view-quiz');
+    }
+
+    // =========================================================================
+    // 8. ACTIVE QUESTION RENDERING & INTERACTION
+    // =========================================================================
+    function renderActiveQuestion() {
+      const s = AppState.quizSession;
+      if (!s.active || s.questions.length === 0) return;
+
+      const q = s.questions[s.currentIndex];
+      const totalQ = s.questions.length;
+      const currNum = s.currentIndex + 1;
+
+      // Update counters & badges
+      document.getElementById('q-counter-text').textContent = `Question ${currNum} of ${totalQ}`;
+      document.getElementById('q-id-badge').textContent = q.id;
+      document.getElementById('q-week-badge').textContent = `Week ${q.week}`;
+      document.getElementById('quiz-palette-progress').textContent = `${currNum}/${totalQ}`;
+
+      // Progress bar fill
+      const progressPercent = Math.round(((s.currentIndex) / totalQ) * 100);
+      document.getElementById('quiz-progress-bar').style.width = `${progressPercent}%`;
+
+      // Live score in practice mode
+      if (AppState.quizMode === 'practice') {
+        const answeredCount = s.questions.filter(item => item.userAnswer !== null).length;
+        const correctCount = s.questions.filter(item => item.userAnswer === item.correctIndex).length;
+        document.getElementById('live-score-val').textContent = `${correctCount} / ${answeredCount}`;
+      }
+
+      // Flag button state
+      const flagBtn = document.getElementById('btn-flag-toggle');
+      flagBtn.classList.toggle('flagged', !!q.flagged);
+      document.getElementById('flag-label').textContent = q.flagged ? 'Flagged' : 'Flag';
+
+      // Question text
+      document.getElementById('q-question-text').textContent = q.q;
+
+      // Feedback banner reset
+      const feedbackBanner = document.getElementById('q-feedback-banner');
+      feedbackBanner.style.display = 'none';
+      feedbackBanner.className = 'feedback-banner';
+
+      // Render Options
+      const optionsContainer = document.getElementById('q-options-container');
+      optionsContainer.innerHTML = '';
+
+      const optionKeys = ['A', 'B', 'C', 'D'];
+      const isAnswered = q.userAnswer !== null;
+
+      q.displayOptions.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.dataset.index = idx;
+
+        // Check if selected
+        if (q.userAnswer === idx) {
+          btn.classList.add('selected');
+        }
+
+        // Practice Mode Highlights
+        if (AppState.quizMode === 'practice' && isAnswered) {
+          btn.disabled = true;
+          if (idx === q.correctIndex) {
+            btn.classList.add('correct');
+          } else if (idx === q.userAnswer) {
+            btn.classList.add('incorrect');
+          }
+        }
+
+        btn.innerHTML = `
+          <div class="option-key">${optionKeys[idx] || idx + 1}</div>
+          <div class="option-text">${optText}</div>
+          <div class="option-status-icon">
+            ${idx === q.correctIndex ? `
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            ` : `
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            `}
+          </div>
+        `;
+
+        btn.addEventListener('click', () => handleOptionSelect(idx));
+        optionsContainer.appendChild(btn);
+      });
+
+      // Show Practice Feedback Banner if already answered
+      if (AppState.quizMode === 'practice' && isAnswered) {
+        const isCorrect = q.userAnswer === q.correctIndex;
+        feedbackBanner.style.display = 'flex';
+        feedbackBanner.className = `feedback-banner ${isCorrect ? 'correct' : 'incorrect'}`;
+        document.getElementById('feedback-icon').textContent = isCorrect ? '🎉' : '⚠️';
+        document.getElementById('feedback-text').textContent = isCorrect 
+          ? `Correct answer! Excellent knowledge.` 
+          : `Incorrect. The correct answer is: "${q.displayOptions[q.correctIndex]}".`;
+      }
+
+      // Prev & Next Buttons state
+      document.getElementById('btn-quiz-prev').disabled = s.currentIndex === 0;
+
+      // Clear button visible in Exam mode if answered
+      const clearBtn = document.getElementById('btn-quiz-clear');
+      clearBtn.style.display = (AppState.quizMode === 'exam' && isAnswered) ? 'inline-flex' : 'none';
+
+      // Next vs Submit Button
+      const nextBtn = document.getElementById('btn-quiz-next');
+      const submitBtn = document.getElementById('btn-quiz-submit');
+
+      if (s.currentIndex === totalQ - 1) {
+        nextBtn.style.display = 'none';
+        submitBtn.style.display = 'inline-flex';
+      } else {
+        nextBtn.style.display = 'inline-flex';
+        submitBtn.style.display = (AppState.quizMode === 'exam') ? 'inline-flex' : 'none';
+      }
+
+      // Update Question Palette items
+      updatePaletteItems();
+    }
+
+    function handleOptionSelect(optionIndex) {
+      const s = AppState.quizSession;
+      if (!s.active) return;
+      const q = s.questions[s.currentIndex];
+
+      // In practice mode, lock if already answered
+      if (AppState.quizMode === 'practice' && q.userAnswer !== null) {
+        return;
+      }
+
+      // Save answer
+      q.userAnswer = optionIndex;
+      const isCorrect = optionIndex === q.correctIndex;
+
+      // Play Sound
+      if (AppState.quizMode === 'practice') {
+        SoundManager.play(isCorrect ? 'correct' : 'incorrect');
+      } else {
+        SoundManager.play('select');
+      }
+
+      // Re-render question
+      renderActiveQuestion();
+    }
+
+    function clearCurrentAnswer() {
+      const s = AppState.quizSession;
+      if (!s.active || AppState.quizMode !== 'exam') return;
+      s.questions[s.currentIndex].userAnswer = null;
+      SoundManager.play('select');
+      renderActiveQuestion();
+    }
+
+    function toggleFlagCurrentQuestion() {
+      const s = AppState.quizSession;
+      if (!s.active) return;
+      const q = s.questions[s.currentIndex];
+      q.flagged = !q.flagged;
+      SoundManager.play('select');
+      renderActiveQuestion();
+      showToast(q.flagged ? 'Question flagged for review' : 'Flag removed', '🚩');
+    }
+
+    function navigateQuestion(direction) {
+      const s = AppState.quizSession;
+      if (!s.active) return;
+      const newIndex = s.currentIndex + direction;
+      if (newIndex >= 0 && newIndex < s.questions.length) {
+        s.currentIndex = newIndex;
+        SoundManager.play('select');
+        renderActiveQuestion();
+      }
+    }
+
+    function jumpToQuestion(index) {
+      const s = AppState.quizSession;
+      if (!s.active) return;
+      if (index >= 0 && index < s.questions.length) {
+        s.currentIndex = index;
+        SoundManager.play('select');
+        renderActiveQuestion();
+        closePalette();
+      }
+    }
+
+    // =========================================================================
+    // 9. QUESTION PALETTE (DRAWER)
+    // =========================================================================
+    function renderPalette() {
+      const s = AppState.quizSession;
+      const container = document.getElementById('palette-buttons-grid');
+      container.innerHTML = '';
+
+      s.questions.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'palette-btn';
+        btn.id = `palette-btn-${idx}`;
+        btn.textContent = idx + 1;
+        btn.title = `Jump to Question ${idx + 1} (${q.id})`;
+        btn.addEventListener('click', () => jumpToQuestion(idx));
+        container.appendChild(btn);
+      });
+
+      updatePaletteItems();
+    }
+
+    function updatePaletteItems() {
+      const s = AppState.quizSession;
+      if (!s.active) return;
+
+      s.questions.forEach((q, idx) => {
+        const btn = document.getElementById(`palette-btn-${idx}`);
+        if (!btn) return;
+
+        btn.className = 'palette-btn';
+        if (idx === s.currentIndex) btn.classList.add('current');
+        if (q.flagged) btn.classList.add('flagged');
+
+        if (q.userAnswer !== null) {
+          if (AppState.quizMode === 'practice') {
+            if (q.userAnswer === q.correctIndex) {
+              btn.classList.add('correct');
+            } else {
+              btn.classList.add('incorrect');
+            }
+          } else {
+            btn.classList.add('answered');
+          }
+        }
+      });
+    }
+
+    function openPalette() {
+      document.getElementById('palette-backdrop').classList.add('open');
+      document.getElementById('palette-drawer').classList.add('open');
+    }
+
+    function closePalette() {
+      document.getElementById('palette-backdrop').classList.remove('open');
+      document.getElementById('palette-drawer').classList.remove('open');
+    }
+
+    // =========================================================================
+    // 10. QUIZ SUBMISSION & RESULTS EVALUATION
+    // =========================================================================
+    function submitQuiz() {
+      const s = AppState.quizSession;
+      if (!s.active) return;
+
+      // Stop timer
+      if (s.timerInterval) clearInterval(s.timerInterval);
+      s.isCompleted = true;
+
+      // Calculate statistics
+      let correct = 0;
+      let incorrect = 0;
+      let unanswered = 0;
+      const total = s.questions.length;
+
+      // Track by week
+      const weekStats = {};
+
+      s.questions.forEach(q => {
+        if (!weekStats[q.week]) {
+          weekStats[q.week] = { total: 0, correct: 0, incorrect: 0, unanswered: 0 };
+        }
+        weekStats[q.week].total++;
+
+        if (q.userAnswer === null) {
+          unanswered++;
+          weekStats[q.week].unanswered++;
+        } else if (q.userAnswer === q.correctIndex) {
+          correct++;
+          weekStats[q.week].correct++;
+        } else {
+          incorrect++;
+          weekStats[q.week].incorrect++;
+        }
+      });
+
+      const percentage = Math.round((correct / total) * 100);
+      const accuracy = (total - unanswered > 0) ? Math.round((correct / (total - unanswered)) * 100) : 0;
+
+      // Save Best Score in local storage
+      if (s.key) {
+        const prev = AppState.scores[s.key];
+        if (!prev || correct > prev.score) {
+          AppState.scores[s.key] = { score: correct, total: total, pct: percentage, date: new Date().toISOString() };
+          localStorage.setItem('we_scores', JSON.stringify(AppState.scores));
+        }
+      }
+
+      // Confetti & Fanfare for good performance
+      if (percentage >= 80) {
+        SoundManager.play('fanfare');
+        setTimeout(() => ConfettiEffect.launch(110), 150);
+      } else {
+        SoundManager.play('select');
+      }
+
+      // Populate Results UI
+      document.getElementById('results-pct-text').textContent = `${percentage}%`;
+      document.getElementById('results-raw-score').textContent = `${correct} / ${total}`;
+      
+      // Animated SVG stroke
+      const strokeVal = 408 - (408 * (percentage / 100));
+      setTimeout(() => {
+        document.getElementById('results-ring-progress').style.strokeDashoffset = strokeVal;
+      }, 100);
+
+      // Performance Verdict
+      let title = "Solid Effort!";
+      let desc = "Keep practicing regularly to solidify ecological concepts.";
+      if (percentage === 100) {
+        title = "Flawless Score! Ecology Prodigy 🌿🏆";
+        desc = "Incredible mastery! You answered every single question correctly.";
+      } else if (percentage >= 90) {
+        title = "Outstanding Mastery! 🌟";
+        desc = "Superb depth of understanding across foundational and applied ecology.";
+      } else if (percentage >= 75) {
+        title = "Great Performance! 👍";
+        desc = "Strong conceptual grasp. Review the few missed questions to reach 100%.";
+      } else if (percentage >= 50) {
+        title = "Good Progress! 📖";
+        desc = "You have a fair foundation. Use 'Retry Incorrect Questions' to master missed points.";
+      }
+      document.getElementById('results-verdict-title').textContent = title;
+      document.getElementById('results-verdict-desc').textContent = desc;
+
+      // Metrics Grid
+      document.getElementById('metric-accuracy').textContent = `${accuracy}%`;
+      document.getElementById('metric-time').textContent = formatTime(s.elapsedSeconds);
+      document.getElementById('metric-correct').textContent = correct;
+      document.getElementById('metric-incorrect').textContent = incorrect;
+      document.getElementById('metric-unanswered').textContent = unanswered;
+
+      // Retry Incorrect button
+      const retryBtn = document.getElementById('btn-retry-incorrect');
+      if (incorrect > 0 || unanswered > 0) {
+        retryBtn.style.display = 'inline-flex';
+        retryBtn.textContent = `🔄 Retry Incorrect Questions (${incorrect + unanswered})`;
+      } else {
+        retryBtn.style.display = 'none';
+      }
+
+      // Populate Week Breakdown Cards
+      renderWeekBreakdown(weekStats);
+
+      // Populate Detailed Question Review
+      renderReviewSection('all');
+
+      // Switch to Results View
+      switchView('view-results');
+    }
+
+    function renderWeekBreakdown(weekStats) {
+      const container = document.getElementById('results-week-breakdown-grid');
+      container.innerHTML = '';
+
+      const weeks = Object.keys(weekStats).map(Number).sort((a, b) => a - b);
+      weeks.forEach(w => {
+        const stat = weekStats[w];
+        const pct = Math.round((stat.correct / stat.total) * 100);
+        const meta = WEEK_METADATA[w] || { title: `Week ${w}` };
+
+        const item = document.createElement('div');
+        item.className = 'week-perf-item';
+        item.innerHTML = `
+          <div class="week-perf-top">
+            <span>Week ${w}: ${meta.title}</span>
+            <span style="color: ${pct >= 80 ? 'var(--success)' : (pct >= 50 ? 'var(--accent-amber)' : 'var(--danger)')};">
+              ${stat.correct}/${stat.total} (${pct}%)
+            </span>
+          </div>
+          <div class="week-mini-bar">
+            <div class="week-mini-bar-fill" style="width: ${pct}%; background: ${pct >= 80 ? 'var(--primary)' : (pct >= 50 ? 'var(--accent-amber)' : 'var(--danger)')};"></div>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function renderReviewSection(filter = 'all') {
+      const s = AppState.quizSession;
+      const container = document.getElementById('review-cards-container');
+      container.innerHTML = '';
+
+      // Update filter tabs counts
+      const allQ = s.questions;
+      const incorrectQ = allQ.filter(q => q.userAnswer !== null && q.userAnswer !== q.correctIndex);
+      const correctQ = allQ.filter(q => q.userAnswer === q.correctIndex);
+      const unansweredQ = allQ.filter(q => q.userAnswer === null);
+      const flaggedQ = allQ.filter(q => q.flagged);
+
+      document.getElementById('rev-count-all').textContent = allQ.length;
+      document.getElementById('rev-count-incorrect').textContent = incorrectQ.length;
+      document.getElementById('rev-count-correct').textContent = correctQ.length;
+      document.getElementById('rev-count-unanswered').textContent = unansweredQ.length;
+      document.getElementById('rev-count-flagged').textContent = flaggedQ.length;
+
+      // Filter list
+      let filtered = allQ;
+      if (filter === 'incorrect') filtered = incorrectQ;
+      else if (filter === 'correct') filtered = correctQ;
+      else if (filter === 'unanswered') filtered = unansweredQ;
+      else if (filter === 'flagged') filtered = flaggedQ;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding: 2.5rem; color: var(--text-muted);">No questions match this filter criteria.</div>`;
+        return;
+      }
+
+      const optionKeys = ['A', 'B', 'C', 'D'];
+
+      filtered.forEach((q, idx) => {
+        const isCorrect = q.userAnswer === q.correctIndex;
+        const isSkipped = q.userAnswer === null;
+        const cardClass = isCorrect ? 'is-correct' : (isSkipped ? 'is-skipped' : 'is-incorrect');
+
+        const card = document.createElement('div');
+        card.className = `review-item-card ${cardClass}`;
+
+        let statusBadge = `<span style="color: var(--success); font-weight: 700; font-size: 0.85rem;">✓ Correct</span>`;
+        if (isSkipped) {
+          statusBadge = `<span style="color: var(--text-muted); font-weight: 700; font-size: 0.85rem;">⚠️ Unanswered</span>`;
+        } else if (!isCorrect) {
+          statusBadge = `<span style="color: var(--danger); font-weight: 700; font-size: 0.85rem;">✗ Incorrect</span>`;
+        }
+
+        let optionsHtml = '';
+        q.displayOptions.forEach((optText, optIdx) => {
+          let optStyleClass = '';
+          let badgeText = '';
+
+          if (optIdx === q.correctIndex) {
+            optStyleClass = 'correct';
+            badgeText = '<span style="font-size: 0.75rem; font-weight: 700; color: var(--success); margin-left: auto;">Correct Answer ✓</span>';
+          }
+          if (optIdx === q.userAnswer && !isCorrect) {
+            optStyleClass = 'incorrect';
+            badgeText = '<span style="font-size: 0.75rem; font-weight: 700; color: var(--danger); margin-left: auto;">Your Choice ✗</span>';
+          } else if (optIdx === q.userAnswer && isCorrect) {
+            badgeText = '<span style="font-size: 0.75rem; font-weight: 700; color: var(--success); margin-left: auto;">Your Choice ✓</span>';
+          }
+
+          optionsHtml += `
+            <div class="option-btn ${optStyleClass}" style="cursor: default; pointer-events: none;">
+              <div class="option-key">${optionKeys[optIdx]}</div>
+              <div class="option-text">${optText}</div>
+              ${badgeText}
+            </div>
+          `;
+        });
+
+        card.innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="q-index-pill">#${allQ.indexOf(q) + 1}</span>
+              <span class="q-id-pill">${q.id}</span>
+              <span class="q-id-pill">Week ${q.week}</span>
+              ${q.flagged ? '<span style="color: var(--accent-amber); font-size: 0.8rem;">🚩 Flagged</span>' : ''}
+            </div>
+            ${statusBadge}
+          </div>
+          <div style="font-size: 1.05rem; font-weight: 700; line-height: 1.5;">${q.q}</div>
+          <div class="options-list">${optionsHtml}</div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function retryIncorrectQuestions() {
+      const s = AppState.quizSession;
+      const incorrectPool = s.questions.filter(q => q.userAnswer === null || q.userAnswer !== q.correctIndex);
+      if (incorrectPool.length === 0) return;
+
+      const title = `Retry Missed Questions • ${incorrectPool.length} Questions`;
+      initQuizSession(incorrectPool, title, 'retry_session');
+    }
+
+    function copyShareableSummary() {
+      const s = AppState.quizSession;
+      if (!s.isCompleted) return;
+
+      const total = s.questions.length;
+      const correct = s.questions.filter(q => q.userAnswer === q.correctIndex).length;
+      const pct = Math.round((correct / total) * 100);
+      const timeStr = formatTime(s.elapsedSeconds);
+
+      // Week stats
+      const weekCounts = {};
+      s.questions.forEach(q => {
+        if (!weekCounts[q.week]) weekCounts[q.week] = { c: 0, t: 0 };
+        weekCounts[q.week].t++;
+        if (q.userAnswer === q.correctIndex) weekCounts[q.week].c++;
+      });
+
+      let breakdownStr = '';
+      Object.keys(weekCounts).sort((a,b)=>a-b).forEach(w => {
+        const st = weekCounts[w];
+        breakdownStr += `\n• Week ${w}: ${st.c}/${st.t} (${Math.round((st.c/st.t)*100)}%)`;
+      });
+
+      const summaryText = `🌿 Wildlife Ecology (2026) Quiz Result\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `🎯 Score: ${correct} / ${total} (${pct}%)\n` +
+        `⏱️ Time Taken: ${timeStr}\n` +
+        `📚 Mode: ${AppState.quizMode === 'practice' ? 'Instant Practice' : 'Mock Exam'}\n` +
+        `📊 Weekly Performance:${breakdownStr}\n` +
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+        `120-Question Wildlife Ecology Portal`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(summaryText)
+          .then(() => showToast('Score summary copied to clipboard!', '📋'))
+          .catch(() => fallbackCopy(summaryText));
+      } else {
+        fallbackCopy(summaryText);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast('Score summary copied to clipboard!', '📋');
+      } catch (err) {
+        showToast('Unable to auto-copy. Please share manually.', '⚠️');
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // =========================================================================
+    // 11. EVENT LISTENERS & SETUP
+    // =========================================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      // Setup Theme
+      document.documentElement.setAttribute('data-theme', AppState.theme);
+      updateThemeIcons();
+
+      document.getElementById('btn-theme-toggle').addEventListener('click', () => {
+        AppState.theme = AppState.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', AppState.theme);
+        localStorage.setItem('we_theme', AppState.theme);
+        updateThemeIcons();
+        SoundManager.play('select');
+      });
+
+      function updateThemeIcons() {
+        const isDark = AppState.theme === 'dark';
+        document.getElementById('icon-sun').style.display = isDark ? 'inline-block' : 'none';
+        document.getElementById('icon-moon').style.display = isDark ? 'none' : 'inline-block';
+      }
+
+      // Sound Toggle
+      document.getElementById('btn-sound-toggle').addEventListener('click', () => {
+        AppState.soundEnabled = !AppState.soundEnabled;
+        localStorage.setItem('we_sound', AppState.soundEnabled);
+        updateSoundIcons();
+        if (AppState.soundEnabled) SoundManager.play('correct');
+      });
+
+      function updateSoundIcons() {
+        document.getElementById('icon-sound-on').style.display = AppState.soundEnabled ? 'inline-block' : 'none';
+        document.getElementById('icon-sound-off').style.display = AppState.soundEnabled ? 'none' : 'inline-block';
+      }
+      updateSoundIcons();
+
+      // Brand Button -> Dashboard
+      document.getElementById('nav-brand-btn').addEventListener('click', () => {
+        if (AppState.quizSession.active && !AppState.quizSession.isCompleted) {
+          document.getElementById('confirm-quit-modal').classList.add('open');
+        } else {
+          switchView('view-dashboard');
+        }
+      });
+
+      // Settings: Feedback Mode Segments
+      const modePracticeBtn = document.getElementById('btn-mode-practice');
+      const modeExamBtn = document.getElementById('btn-mode-exam');
+      modePracticeBtn.addEventListener('click', () => {
+        AppState.quizMode = 'practice';
+        modePracticeBtn.classList.add('active');
+        modeExamBtn.classList.remove('active');
+        SoundManager.play('select');
+      });
+      modeExamBtn.addEventListener('click', () => {
+        AppState.quizMode = 'exam';
+        modeExamBtn.classList.add('active');
+        modePracticeBtn.classList.remove('active');
+        SoundManager.play('select');
+      });
+
+      // Settings: Question Order Segments
+      const orderSeqBtn = document.getElementById('btn-order-sequential');
+      const orderRandBtn = document.getElementById('btn-order-random');
+      orderSeqBtn.addEventListener('click', () => {
+        AppState.questionOrder = 'sequential';
+        orderSeqBtn.classList.add('active');
+        orderRandBtn.classList.remove('active');
+        SoundManager.play('select');
+      });
+      orderRandBtn.addEventListener('click', () => {
+        AppState.questionOrder = 'random';
+        orderRandBtn.classList.add('active');
+        orderSeqBtn.classList.remove('active');
+        SoundManager.play('select');
+      });
+
+      // Settings: Option Shuffle Toggle
+      const shuffleOptionsToggle = document.getElementById('toggle-shuffle-options');
+      shuffleOptionsToggle.addEventListener('change', (e) => {
+        AppState.shuffleOptions = e.target.checked;
+        SoundManager.play('select');
+      });
+
+      // Mega Quiz Quick Launchers
+      document.getElementById('btn-mega-all').addEventListener('click', () => startMegaQuiz(120));
+      document.getElementById('btn-mega-50').addEventListener('click', () => startMegaQuiz(50));
+      document.getElementById('btn-mega-20').addEventListener('click', () => startMegaQuiz(20));
+
+      // Week Multi-Select Action Buttons
+      document.getElementById('btn-select-all-weeks').addEventListener('click', () => {
+        for (let w = 1; w <= 12; w++) AppState.selectedWeeks.add(w);
+        renderDashboard();
+      });
+      document.getElementById('btn-clear-all-weeks').addEventListener('click', () => {
+        AppState.selectedWeeks.clear();
+        renderDashboard();
+      });
+      document.getElementById('btn-start-selected-weeks').addEventListener('click', () => {
+        startSelectedWeeksQuiz();
+      });
+
+      // Active Quiz Controls
+      document.getElementById('btn-flag-toggle').addEventListener('click', toggleFlagCurrentQuestion);
+      document.getElementById('btn-quiz-prev').addEventListener('click', () => navigateQuestion(-1));
+      document.getElementById('btn-quiz-next').addEventListener('click', () => navigateQuestion(1));
+      document.getElementById('btn-quiz-clear').addEventListener('click', clearCurrentAnswer);
+      document.getElementById('btn-quiz-submit').addEventListener('click', submitQuiz);
+
+      // Quit Quiz Confirmation
+      document.getElementById('btn-quit-quiz').addEventListener('click', () => {
+        document.getElementById('confirm-quit-modal').classList.add('open');
+      });
+      document.getElementById('btn-cancel-quit').addEventListener('click', () => {
+        document.getElementById('confirm-quit-modal').classList.remove('open');
+      });
+      document.getElementById('btn-confirm-quit').addEventListener('click', () => {
+        document.getElementById('confirm-quit-modal').classList.remove('open');
+        if (AppState.quizSession.timerInterval) clearInterval(AppState.quizSession.timerInterval);
+        AppState.quizSession.active = false;
+        switchView('view-dashboard');
+      });
+
+      // Palette Toggle
+      document.getElementById('btn-open-palette').addEventListener('click', openPalette);
+      document.getElementById('btn-close-palette').addEventListener('click', closePalette);
+      document.getElementById('palette-backdrop').addEventListener('click', closePalette);
+
+      // Results Actions
+      document.getElementById('btn-retry-incorrect').addEventListener('click', retryIncorrectQuestions);
+      document.getElementById('btn-retake-quiz').addEventListener('click', () => {
+        const s = AppState.quizSession;
+        initQuizSession(s.questions, s.title, s.key);
+      });
+      document.getElementById('btn-copy-summary').addEventListener('click', copyShareableSummary);
+      document.getElementById('btn-results-dashboard').addEventListener('click', () => {
+        switchView('view-dashboard');
+        renderDashboard();
+      });
+
+      // Review filter tabs
+      document.querySelectorAll('.filter-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderReviewSection(btn.dataset.filter);
+        });
+      });
+
+      // Shortcuts Modal
+      const shortcutsModal = document.getElementById('shortcuts-modal');
+      document.getElementById('btn-shortcuts-modal').addEventListener('click', () => shortcutsModal.classList.add('open'));
+      document.getElementById('btn-close-shortcuts').addEventListener('click', () => shortcutsModal.classList.remove('open'));
+      document.getElementById('btn-dismiss-shortcuts').addEventListener('click', () => shortcutsModal.classList.remove('open'));
+
+      // Global Keyboard Navigation
+      window.addEventListener('keydown', (e) => {
+        // If modal or palette open, handle Escape
+        if (e.key === 'Escape') {
+          shortcutsModal.classList.remove('open');
+          document.getElementById('confirm-quit-modal').classList.remove('open');
+          closePalette();
+          return;
+        }
+
+        // Shortcuts modal trigger '?'
+        if (e.key === '?' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+          shortcutsModal.classList.toggle('open');
+          return;
+        }
+
+        // Palette toggle 'P' or 'p'
+        if ((e.key === 'p' || e.key === 'P') && AppState.quizSession.active && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+          const drawer = document.getElementById('palette-drawer');
+          if (drawer.classList.contains('open')) closePalette(); else openPalette();
+          return;
+        }
+
+        // If inside active quiz view
+        if (AppState.quizSession.active && document.getElementById('view-quiz').classList.contains('active')) {
+          if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+          // Keys 1-4 or A-D
+          if (['1', '2', '3', '4'].includes(e.key)) {
+            const optIdx = parseInt(e.key, 10) - 1;
+            handleOptionSelect(optIdx);
+          } else if (['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D'].includes(e.key)) {
+            const mapping = { 'a': 0, 'b': 1, 'c': 2, 'd': 3 };
+            const optIdx = mapping[e.key.toLowerCase()];
+            if (optIdx !== undefined) handleOptionSelect(optIdx);
+          } else if (e.key === 'ArrowRight' || e.key === 'Enter') {
+            const s = AppState.quizSession;
+            if (s.currentIndex === s.questions.length - 1) {
+              if (AppState.quizMode === 'exam' || s.questions[s.currentIndex].userAnswer !== null) {
+                submitQuiz();
+              }
+            } else {
+              navigateQuestion(1);
+            }
+          } else if (e.key === 'ArrowLeft') {
+            navigateQuestion(-1);
+          } else if (e.key === 'f' || e.key === 'F') {
+            toggleFlagCurrentQuestion();
+          }
+        }
+      });
+
+      // Initial Render
+      renderDashboard();
+    });
+  </script>
+</body>
+</html>
